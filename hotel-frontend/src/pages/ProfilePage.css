@@ -1,0 +1,224 @@
+/* ProfilePage.css */
+
+.profile-loading {
+    color: var(--accent-cyan);
+    text-align: center;
+    padding: 100px;
+}
+
+.profile-container {
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.user-card {
+    padding: 40px;
+    height: fit-content;
+}
+
+.user-card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-avatar-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--gradient-main);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-name {
+    font-size: 1.8rem;
+}
+
+.user-level {
+    color: var(--text-dim);
+}
+
+.user-stats {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.user-stat-item {
+    margin-bottom: 15px;
+}
+
+.stat-icon {
+    margin-right: 10px;
+}
+
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.history-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking-card {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    gap: 25px;
+}
+
+.booking-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.hotel-title {
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+}
+
+.hotel-addr {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.room-type-text {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.booking-code {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 5px;
+}
+
+.booking-right-panel {
+    text-align: right;
+}
+
+.booking-dates {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+}
+
+.booking-amount {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.status-badge {
+    margin: 10px 0;
+    font-size: 0.75rem;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.status-confirmed {
+    background: rgba(0, 242, 255, 0.1);
+    color: #00f2ff;
+}
+
+.status-cancelled {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+}
+
+.booking-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-danger {
+    background: #ff4d4d;
+}
+
+.no-bookings {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-dim);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 450px;
+    padding: 40px;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.modal-form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form-group-last {
+    margin-bottom: 30px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-btn {
+    flex: 1;
+}
