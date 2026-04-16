@@ -1,0 +1,50 @@
+/* Navbar.css */
+.nav-logo-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-logo-icon {
+    vertical-align: middle;
+    margin-right: 10px;
+    color: var(--accent-cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-login-link {
+    text-decoration: none;
+}
+
+.nav-icon {
+    margin-right: 8px;
+}
+
+.nav-logout-btn {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item { 
+    color: var(--text-dim); 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: color 0.3s ease; 
+}
+
+.nav-item:hover { 
+    color: var(--accent-cyan); 
+}
+
+.active-link { 
+    color: var(--accent-cyan); 
+    text-decoration: none; 
+    font-weight: 600; 
+    border-bottom: 2px solid var(--accent-cyan); 
+}

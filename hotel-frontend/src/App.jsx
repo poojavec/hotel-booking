@@ -1,121 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
+// Import our page components
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import AllHotels from './pages/AllHotels';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import HotelDetails from './pages/HotelDetails';
+import BookingPage from './pages/BookingPage';
+import ProfilePage from './pages/ProfilePage';
+import AdminDashboard from './pages/AdminDashboard';
+import ManageHotels from './pages/ManageHotels';
+import ManageBookings from './pages/ManageBookings';
+import ApiService from './service/ApiService';
+
+/**
+ * ProtectedRoute: Wraps pages that require LOGIN to access.
+ * If the user is NOT logged in, redirect them to the login page.
+ * WHY? We don't want non-logged-in users accessing the booking or profile pages.
+ */
+const ProtectedRoute = ({ children }) => {
+    const isLoggedIn = ApiService.isAuthenticated();
+    // If logged in, show the page. Otherwise go to /login.
+    return isLoggedIn ? children : <Navigate to="/login" />;
+};
+
+/**
+ * AdminRoute: Wraps pages that require ADMIN role to access.
+ * If the user is not an admin, redirect to login.
+ */
+const AdminRoute = ({ children }) => {
+    const isAdmin = ApiService.isAdmin();
+    return isAdmin ? children : <Navigate to="/login" />;
+};
+
+/**
+ * App is the root component of our React app.
+ * It sets up the router and defines all the page routes.
+ *
+ * BrowserRouter = enables URL-based navigation in React (uses history API)
+ * Routes + Route = maps each URL path to a specific page component
+ */
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <BrowserRouter>
+            {/* Toaster shows popup notifications (success/error) anywhere in the app */}
+            <Toaster position="top-center" reverseOrder={false} />
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+            <div className="App">
+                {/* Navbar is shown on every page */}
+                <Navbar />
 
-      <div className="ticks"></div>
+                <div className="content">
+                    <Routes>
+                        {/* Public pages — anyone can visit these */}
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/hotels" element={<AllHotels />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/hotel/:id" element={<HotelDetails />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+                        {/* Protected pages — must be logged in */}
+                        <Route path="/book/:hotelId/:roomId" element={
+                            <ProtectedRoute>
+                                <BookingPage />
+                            </ProtectedRoute>
+                        } />
+                        <Route path="/profile" element={
+                            <ProtectedRoute>
+                                <ProfilePage />
+                            </ProtectedRoute>
+                        } />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+                        {/* Admin-only pages */}
+                        <Route path="/admin" element={
+                            <AdminRoute>
+                                <AdminDashboard />
+                            </AdminRoute>
+                        } />
+                        <Route path="/admin/hotels" element={
+                            <AdminRoute>
+                                <ManageHotels />
+                            </AdminRoute>
+                        } />
+                        <Route path="/admin/bookings" element={
+                            <AdminRoute>
+                                <ManageBookings />
+                            </AdminRoute>
+                        } />
+
+                        {/* Fallback: any unknown URL goes to home */}
+                        <Route path="*" element={<Navigate to="/home" />} />
+                    </Routes>
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 }
 
-export default App
+export default App;

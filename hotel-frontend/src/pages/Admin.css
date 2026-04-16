@@ -1,0 +1,316 @@
+/* Admin.css - Shared styles for AdminDashboard, ManageHotels, and ManageBookings */
+
+.admin-container {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.admin-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.admin-subtitle {
+    color: var(--text-dim);
+}
+
+.nav-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.nav-card {
+    padding: 50px 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-card-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.admin-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.top-bar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-box {
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid var(--accent-cyan);
+    overflow: hidden;
+}
+
+.modal-box-violet {
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid var(--accent-violet);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-title-cyan {
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+}
+
+.modal-title-violet {
+    font-size: 1.4rem;
+    color: var(--accent-violet);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-input-admin {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-textarea {
+    grid-column: 1 / -1;
+    height: 100px;
+    resize: none;
+}
+
+.form-textarea-small {
+    grid-column: 1 / -1;
+    height: 80px;
+    resize: none;
+}
+
+.form-submit-btn {
+    grid-column: 1 / -1;
+    padding: 15px;
+}
+
+.btn-violet {
+    background: var(--accent-violet);
+}
+
+.hotel-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.hotel-list-item {
+    padding: 35px;
+}
+
+.hotel-item-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hotel-item-title {
+    font-size: 1.8rem;
+    color: var(--accent-cyan);
+}
+
+.hotel-item-loc {
+    color: var(--text-dim);
+    margin-top: 5px;
+}
+
+.hotel-actions-group {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-btn-action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+}
+
+.admin-btn-danger {
+    background: #ff4d4d;
+}
+
+.rooms-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+}
+
+.rooms-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rooms-section-title {
+    font-size: 1.1rem;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.room-admin-card {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+.delete-room-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+.room-type-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.room-price-admin {
+    color: var(--accent-cyan);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.room-capacity {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.empty-msg {
+    color: var(--text-dim);
+    text-align: center;
+    padding: 20px;
+}
+
+.search-bar-admin {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    width: 400px;
+}
+
+.search-input-admin {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+}
+
+.registry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registry-item {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid;
+}
+
+.item-confirmed {
+    border-left-color: var(--accent-cyan);
+}
+
+.item-cancelled {
+    border-left-color: #ff4d4d;
+}
+
+.registry-item-content {
+    display: flex;
+    gap: 30px;
+}
+
+.registry-icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registry-code {
+    color: var(--accent-cyan);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.registry-details-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px 20px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.status-badge-admin {
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    border-radius: 15px;
+}
+
+.status-confirmed {
+    background: rgba(0, 242, 255, 0.1);
+    color: #00f2ff;
+}
+
+.status-cancelled {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+}

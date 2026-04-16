@@ -1,0 +1,109 @@
+/* Auth.css (Shared by Login and Register Pages) */
+
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+}
+
+.auth-card-wide {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-icon {
+    margin-bottom: 15px;
+    color: var(--accent-cyan);
+}
+
+.auth-title {
+    font-size: 2rem;
+}
+
+.auth-subtitle {
+    color: var(--text-dim);
+}
+
+.auth-error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.form-input-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0 15px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 15px;
+}
+
+.input-icon {
+    margin-right: 10px;
+    color: var(--accent-cyan);
+}
+
+.form-input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+    outline: none;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--text-dim);
+}
+
+.auth-link {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
