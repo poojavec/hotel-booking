@@ -1,0 +1,1 @@
+target/ *.class .env node_modules/build/ .idea/
